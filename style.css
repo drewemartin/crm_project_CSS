@@ -1,0 +1,83 @@
+body
+{
+    margin: 0px;
+    background-image: url("beachstars.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.container
+{
+    height: auto;
+    width: auto;
+}
+
+h1
+{
+    font-size: 64px;
+    text-indent: 100px;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    font-family: 'Monofett', cursive;
+    color: white;
+}
+
+p
+{
+    border-top: 0px;
+    text-indent: 100px;
+    font-size: 25px;
+    margin-top: 10px;
+    font-family: 'Comfortaa', cursive;
+    color: white;
+}
+
+.guts
+{
+    border: dotted 2px;
+    border-color: rgba(255, 107, 15, 0.1);
+    border-radius: 100px;
+    height: 326px;
+    width: 434px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 30px;
+    padding-right: 16px;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    background: rgba(255, 107, 15, 0.1)
+    
+}
+
+.homeli
+{
+    border: solid 4px;
+    border-radius: 4px;
+    height: 60px;
+    width: 250px;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(167,199,220,1)), color-stop(100%,rgba(133,178,211,1))); 
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-bottom: 100px;
+    font-size: 25px;
+    text-align: center;
+    font-family: 'Comfortaa', cursive;
+    color: white;
+    padding-top: 16px;
+    
+}
+
+.homeli:hover {
+    
+}
+
+.homeli:active {
+    
+}
+
+a
+{
+ color: white;   
+}
