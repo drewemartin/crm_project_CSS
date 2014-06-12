@@ -1,0 +1,12 @@
+<h1>CRM</h1>
+
+<p>Edit a Contact</p>
+
+<form action="/contacts/<%= @contact.id %>" method="post">
+  <input type="hidden" name="_method" value="put">
+  <input type="text" name="first_name" value="<%= @contact.first_name %>">
+  <input type="text" name="last_name" value="<%= @contact.last_name %>">
+  <input type="text" name="email_address" value="<%= @contact.email_address %>">
+  <input type="text" name="notes" value="<%= @contact.notes %>">
+  <input type="submit" name="Submit">
+</form>

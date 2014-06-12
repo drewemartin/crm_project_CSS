@@ -23,19 +23,26 @@ get '/contacts/new' do
 	erb :add_contacts
 end
 
-get "/contacts/1000" do
-	@contact = @@rolodex.find(1000)
-	erb :show_contact
-end
 
-get '/contacts/:id' 
+get '/contacts/:id' do
 	@contact = @@rolodex.find(params[:id].to_i)
-	erb :show_contact
+	if @contact 
+		erb :show_contact
+	else
+		puts "Im not found"
+		raise Sinatra::NotFound
+	end
 end
 
-# get '/contacts/:id/edit' #find and edit unique contact
-
-# end
+get '/contacts/:id/edit' do #find and edit unique contact
+	@contact = @@rolodex.find(params[:id].to_i)
+	if @contact
+		erb :edit_contact
+	else
+		puts "Im not found"
+		raise Sinatra::NotFound
+	end
+end
 
 post '/contacts' do
 puts params
@@ -43,3 +50,41 @@ new_contact = Contact.new(params[:first_name], params[:last_name], params[:email
 @@rolodex.add_contact(new_contact)
 redirect '/contacts'
 end
+
+put '/contacts/:id' do
+	@contact = @@rolodex.find(params[:id].to_i)
+
+	if @contact
+		@contact.first_name = params[:first_name]
+		@contact.last_name = params[:last_name]
+		@contact.email_address = params[:email_address]
+		@contact.notes = params[:notes]
+		redirect '/contacts'
+	else
+		raise Sinatra::NotFound
+	end
+end
+
+delete '/contacts/:id' do
+	@contact = @@rolodex.find(params[:id])
+
+	if @contact
+		@@rolodex.remove_contact(contact)
+		redirect '/contacts'
+	else
+		raise Sinatra::Notfound
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
