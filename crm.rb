@@ -1,6 +1,9 @@
 require 'sinatra'
+require 'data_mapper'
 require_relative 'contact_class'
 require_relative 'rolodex_class'
+
+DataMapper.setup(:default, 'sqlite3:database.sqlite3')
 
 @@rolodex = Rolodex.new
 @@rolodex.add_contact(Contact.new("Johnny", "Bravo", "johnny@bitmakerlabs.com", "Rockstar"))
@@ -66,7 +69,6 @@ put '/contacts/:id' do
 end
 
 
-
 delete "/contacts/:id" do
   @contact = @@rolodex.find(params[:id].to_i)
   if @contact
@@ -76,6 +78,17 @@ delete "/contacts/:id" do
     raise Sinatra::NotFound
   end
 end
+
+# delete '/contacts/:id' do !!!!!!ASK WHY DIDN'T WORK !!!!!!!
+# 	@contact = @@rolodex.find(params[:id])
+
+# 	if @contact
+# 		@@rolodex.remove_contact(@contact)
+# 		redirect '/contacts'
+# 	else
+# 		raise Sinatra::Notfound
+# 	end
+# end
 
 
 
