@@ -6,19 +6,22 @@ DataMapper.setup(:default, 'sqlite3:database.sqlite3')
 
 class Contact
 
-	attr_accessor :id, :first_name, :last_name, :email_address, :notes
+	include DataMapper::Resource #Data Mapper's "Resource" module was included
+								#By including Data Mapper's "Resource" module. 
+								#Every new instance of the contact class will be added
+								#to the Contact(s) database. Data Mapper automatically
+								#appends "S" to the name of the class to make it plural.
 
-	def initialize(first_name, last_name, email_address, notes)
-		@first_name = first_name
-		@last_name = last_name
-		@email_address = email_address
-		@notes
-	end
-
-	def to_s
-		"#{first_name}, #{last_name}, #{email_address}, #{notes}"
-	end
+	property :id, serial #serial refers to a number that automaticall increments
+	property :first_name, string #string is same in ruby "holla!" 
+	property :last_name, string #symbols like ":notes" refer to the names of column headers
+	propert :email_address, string 
+	property :notes, string 
+	#property removes the need for initialize and attr_accessor
 end
+
+DataMapper.finalize #consider this to be the closing tag of Data Mapper
+Datamapper.auto_upgrade! #this automatically makes needed changes to the database
 
 @@rolodex = Rolodex.new
 @@rolodex.add_contact(Contact.new("Johnny", "Bravo", "johnny@bitmakerlabs.com", "Rockstar"))
