@@ -1,6 +1,6 @@
 ##Welcome to CRM w/ CSS
 
-This projects adds CSS styling on top of a previously completed CRM (customer relations manager -> https://github.com/drewemartin/crm_project)
+This project adds CSS styling on top of a previously completed CRM (customer relations manager -> https://github.com/drewemartin/crm_project)
 
 ##Functionality Highlights
 
