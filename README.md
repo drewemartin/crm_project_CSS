@@ -9,6 +9,7 @@ This projects adds CSS styling on top of a previously completed CRM (customer re
 ##Specs
 
 * Made with Sinatra (infrastructure) 
+* Fonts provided by Google Fonts
 
 ##Creator
 
